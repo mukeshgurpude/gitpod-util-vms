@@ -3,14 +3,6 @@ ports:
   - port: 27017 # mongodb
 
 tasks:
-  - before: |
-      echo '
-      export COOKIE_DOMAIN=gitpod.io
-      export HOME_LOCATION=$(gp url 8000)
-      export API_LOCATION=$(gp url 3000)
-      export CYPRESS_BASE_URL=$(gp url 8000)
-      ' >> ~/.bashrc;
-      exit;
   - name: db
     # starting mongo in background, so it doesn't block prebuilds
     before: >
