@@ -9,3 +9,5 @@ tasks:
       printf "\n Nasm is good to go on this workspace"
   
   - name: workspace
+    init: source setup/.assemble.sh
+    command: printf "\n You can now use RUN command to execute nasm files"
