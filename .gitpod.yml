@@ -1,6 +1,7 @@
 image: gitpod/workspace-mongodb
 ports:
   - port: 27017 # mongodb
+    onOpen: ignore
 
 tasks:
   - name: db
@@ -8,4 +9,6 @@ tasks:
     before: >
       mkdir -p /workspace/data &&
       (mongod --dbpath /workspace/data &)
- 
+
+  - name: NASM-SETUP
+    command: sudo apt install nasm && sudo apt install binutils
