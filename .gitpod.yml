@@ -1,14 +1,11 @@
-image: gitpod/workspace-mongodb
-ports:
-  - port: 27017 # mongodb
-    onOpen: ignore
+image: gitpod/workspace-full
 
 tasks:
-  - name: db
-    # starting mongo in background, so it doesn't block prebuilds
-    before: >
-      mkdir -p /workspace/data &&
-      (mongod --dbpath /workspace/data &)
-
   - name: nasm
-    command: sudo apt install nasm && sudo apt install binutils && source setup/.assemble.sh
+    before: sudo apt install binutils 
+    init:  sudo apt install nasm
+    command: >
+      source setup/.assemble.sh
+      printf "\n Nasm is good to go on this workspace"
+  
+  - name: workspace
