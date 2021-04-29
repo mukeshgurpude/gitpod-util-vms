@@ -10,5 +10,5 @@ tasks:
       mkdir -p /workspace/data &&
       (mongod --dbpath /workspace/data &)
 
-  - name: NASM-SETUP
-    command: sudo apt install nasm && sudo apt install binutils
+  - name: nasm
+    command: sudo apt install nasm && sudo apt install binutils && source setup/.assemble.sh
